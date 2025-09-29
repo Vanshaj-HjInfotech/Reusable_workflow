@@ -1,0 +1,15 @@
+name: Main Caller Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "Enter a text to pass"
+        required: true
+        default: "Hello World"
+
+jobs:
+  Nested-workflow:
+    uses: ./.github/workflows/B.yml
+    with:
+      info: ${{ github.event.inputs.text }}
