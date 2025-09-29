@@ -1,0 +1,13 @@
+name: Grandchild Workflow
+on:
+  workflow_call:
+    inputs:
+      info:
+        required: true
+        type: string
+
+jobs:
+  call-child:
+    uses: ./.github/workflows/childworkflow.yml
+    with:
+      message: ${{ inputs.info }}
